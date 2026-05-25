@@ -1,439 +1,383 @@
-/* From Uiverse.io by Ashon-G */ 
-.macbook {
-  width: 150px;
-  height: 96px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin: -85px 0 0 -78px;
-  perspective: 500px;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
+body{
+  background:black;
+}
+
+/* ===== APPLE STYLE LAYOUT ===== */
+
+.landing-container {
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 100px;
+}
+
+/* ===== LEFT CONTENT ===== */
+
+.landing-content {
+  color: white;
+  max-width: 520px;
+  z-index: 100;
+}
+
+.landing-content h1 {
+  font-size: 90px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 30px;
+}
+
+.landing-content span {
+  color: #ffffff;
+  text-shadow: 0px 0px 20px rgba(255,255,255,0.3);
+}
+
+.landing-content p {
+  font-size: 22px;
+  color: #aaa;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+/* ===== BUTTONS ===== */
+
+.landing-buttons {
+  display: flex;
+  gap: 25px;
+}
+
+.landing-btn {
+  padding: 18px 50px;
+  border-radius: 50px;
+  border: none;
+
+  background: white;
+  color: black;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0px 0px 40px rgba(255,255,255,0.5);
+}
+
+.landing-btn::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+  );
+
+  top: -50%;
+  left: -100%;
+  transform: rotate(25deg);
+  transition: 0.8s;
+}
+
+.landing-btn:hover::before {
+  left: 120%;
+}
+
+.signup-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.signup-btn:hover {
+  background: white;
+  color: black;
+}
+
+/* ===== MACBOOK ===== */
+
+.macbook {
+  width: 650px;
+  height: 420px;
+  position: relative;
+  perspective: 1200px;
+}
+
+/* ===== SHADOW ===== */
 
 .shadow {
   position: absolute;
-  width: 60px;
-  height: 0px;
-  left: 40px;
-  top: 160px;
-  transform: rotateX(80deg) rotateY(0deg) rotateZ(0deg);
-  box-shadow: 0 0 60px 40px rgba(0,0,0,0.3);
-  animation: shadow infinite 7s ease;
+  width: 350px;
+  height: 20px;
+  left: 150px;
+  bottom: -120px;
+  background: rgba(255,255,255,0.05);
+  filter: blur(30px);
+  border-radius: 50%;
 }
+
+/* ===== INNER ===== */
 
 .inner {
   z-index: 20;
   position: absolute;
-  width: 150px;
-  height: 96px;
-  left: 0;
-  top: 0;
+  width: 650px;
+  height: 420px;
+
   transform-style: preserve-3d;
-  transform: rotateX(-20deg) rotateY(0deg) rotateZ(0deg);
-  animation: rotate infinite 7s ease;
+
+  transform: rotateX(-18deg) rotateY(-18deg);
+
+  animation: floating 5s ease-in-out infinite;
 }
+
+/* ===== SCREEN ===== */
 
 .screen {
-  width: 150px;
-  height: 96px;
+  width: 650px;
+  height: 420px;
   position: absolute;
-  left: 0;
-  bottom: 0;
-  border-radius: 7px;
-  background: #ddd;
-  transform-style: preserve-3d;
-  transform-origin: 50% 93px;
-  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-  animation: lid-screen infinite 7s ease;
-  background-image: linear-gradient(45deg, rgba(0,0,0,0.34) 0%,rgba(0,0,0,0) 100%);
-  background-position: left bottom;
-  background-size: 300px 300px;
-  box-shadow: inset 0 3px 7px rgba(255,255,255,0.5);
-}
 
-.screen .logo {
-  position: absolute;
-  width: 20px;
-  height: 24px;
-  left: 50%;
-  top: 50%;
-  margin: -12px 0 0 -10px;
-  transform: rotateY(180deg) translateZ(0.1px);
+  border-radius: 20px;
+
+  background: #111;
+
+  transform-style: preserve-3d;
+
+  overflow: hidden;
+
+  box-shadow:
+  0px 0px 60px rgba(255,255,255,0.08),
+  inset 0px 0px 10px rgba(255,255,255,0.05);
 }
 
 .screen .face-one {
-  width: 150px;
-  height: 96px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  border-radius: 7px;
-  background: #d3d3d3;
-  transform: translateZ(2px);
-  background-image: linear-gradient(45deg,rgba(0,0,0,0.24) 0%,rgba(0,0,0,0) 100%);
-}
-
-.screen .face-one .camera {
-  width: 3px;
-  height: 3px;
-  border-radius: 100%;
-  background: #000;
-  position: absolute;
-  left: 50%;
-  top: 4px;
-  margin-left: -1.5px;
-}
-
-.screen .face-one .display {
-  width: 130px;
-  height: 74px;
-  margin: 10px;
-  background-color: #000;
-  background-size: 100% 100%;
-  border-radius: 1px;
+  width: 650px;
+  height: 420px;
+  border-radius: 20px;
+  background: #111;
   position: relative;
-  box-shadow: inset 0 0 2px rgba(0,0,0,1);
 }
 
-.screen .face-one .display .shade {
+/* ===== CAMERA ===== */
+
+.camera {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #333;
+
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 130px;
-  height: 74px;
-  background: linear-gradient(-135deg, rgba(255,255,255,0) 0%,rgba(255,255,255,0.1) 47%,rgba(255,255,255,0) 48%);
-  animation: screen-shade infinite 7s ease;
-  background-size: 300px 200px;
-  background-position: 0px 0px;
+  top: 12px;
+  left: 50%;
+
+  transform: translateX(-50%);
 }
 
-.screen .face-one span {
+/* ===== DISPLAY ===== */
+
+.display {
+  width: 610px;
+  height: 360px;
+
   position: absolute;
-  top: 85px;
-  left: 57px;
-  font-size: 6px;
-  color: #666
+
+  top: 30px;
+  left: 20px;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  background:
+  linear-gradient(
+    135deg,
+    #0f0f0f,
+    #1f1f1f,
+    #2d2d2d
+  );
 }
+
+.shade {
+  width: 100%;
+  height: 100%;
+
+  background:
+  linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.08),
+    transparent
+  );
+
+  animation: shine 4s infinite linear;
+}
+
+/* ===== MACBODY ===== */
 
 .macbody {
-  width: 150px;
-  height: 96px;
+  width: 650px;
+  height: 420px;
+
   position: absolute;
-  left: 0;
-  bottom: 0;
-  border-radius: 7px;
-  background: #cbcbcb;
+
+  top: 0;
+
+  border-radius: 20px;
+
   transform-style: preserve-3d;
-  transform-origin: 50% bottom;
+
+  transform-origin: bottom;
+
   transform: rotateX(-90deg);
-  animation: lid-macbody infinite 7s ease;
-  background-image: linear-gradient(45deg, rgba(0,0,0,0.24) 0%,rgba(0,0,0,0) 100%);
+
+  background: #c9c9c9;
 }
 
 .macbody .face-one {
-  width: 150px;
-  height: 96px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  border-radius: 7px;
-  transform-style: preserve-3d;
-  background: #dfdfdf;
-  animation: lid-keyboard-area infinite 7s ease;
-  transform: translateZ(-2px);
-  background-image: linear-gradient(30deg, rgba(0,0,0,0.24) 0%,rgba(0,0,0,0) 100%);
+  width: 650px;
+  height: 420px;
+  border-radius: 20px;
+  background: #d9d9d9;
 }
 
-.macbody .touchpad {
-  width: 40px;
-  height: 31px;
+/* ===== TOUCHPAD ===== */
+
+.touchpad {
+  width: 180px;
+  height: 110px;
+
+  border-radius: 10px;
+
+  background: #bfbfbf;
+
   position: absolute;
+
   left: 50%;
-  top: 50%;
-  border-radius: 4px;
-  margin: -44px 0 0 -18px;
-  background: #cdcdcd;
-  background-image: linear-gradient(30deg, rgba(0,0,0,0.24) 0%,rgba(0,0,0,0) 100%);
-  box-shadow: inset 0 0 3px #888;
+  bottom: 60px;
+
+  transform: translateX(-50%);
 }
 
-.macbody .keyboard {
-  width: 130px;
-  height: 45px;
+/* ===== KEYBOARD ===== */
+
+.keyboard {
+  width: 580px;
+  height: 140px;
+
   position: absolute;
-  left: 7px;
-  top: 41px;
-  border-radius: 4px;
-  transform-style: preserve-3d;
-  background: #cdcdcd;
-  background-image: linear-gradient(30deg, rgba(0,0,0,0.24) 0%,rgba(0,0,0,0) 100%);
-  box-shadow: inset 0 0 3px #777;
-  padding: 0 0 0 2px;
+
+  top: 60px;
+  left: 35px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
-.keyboard .key {
-  width: 6px;
-  height: 6px;
-  background: #444;
-  float: left;
-  margin: 1px;
-  transform: translateZ(-2px);
-  border-radius: 2px;
-  box-shadow: 0 -2px 0 #222;
-  animation: keys infinite 7s ease;
+.key {
+  width: 32px;
+  height: 22px;
+
+  background: #222;
+
+  border-radius: 5px;
 }
 
-.key.space {
-  width: 45px;
-}
+/* ===== PADS ===== */
 
-.key.f {
-  height: 3px;
-}
-
-.macbody .pad {
-  width: 5px;
-  height: 5px;
-  background: #333;
-  border-radius: 100%;
+.pad {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #555;
   position: absolute;
 }
 
 .pad.one {
-  left: 20px;
   top: 20px;
+  left: 20px;
 }
 
 .pad.two {
-  right: 20px;
   top: 20px;
+  right: 20px;
 }
 
 .pad.three {
-  right: 20px;
   bottom: 20px;
+  right: 20px;
 }
 
 .pad.four {
-  left: 20px;
   bottom: 20px;
+  left: 20px;
 }
 
-@keyframes rotate {
-  0% {
-    transform: rotateX(-20deg) rotateY(0deg) rotateZ(0deg);
+/* ===== TITLE ===== */
+
+.screen span {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #666;
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes floating {
+
+  0%{
+    transform:
+    rotateX(-18deg)
+    rotateY(-18deg)
+    translateY(0px);
   }
 
-  5% {
-    transform: rotateX(-20deg) rotateY(-20deg) rotateZ(0deg);
+  50%{
+    transform:
+    rotateX(-18deg)
+    rotateY(-18deg)
+    translateY(-12px);
   }
 
-  20% {
-    transform: rotateX(30deg) rotateY(200deg) rotateZ(0deg);
-  }
-
-  25% {
-    transform: rotateX(-60deg) rotateY(150deg) rotateZ(0deg);
-  }
-
-  60% {
-    transform: rotateX(-20deg) rotateY(130deg) rotateZ(0deg);
-  }
-
-  65% {
-    transform: rotateX(-20deg) rotateY(120deg) rotateZ(0deg);
-  }
-
-  80% {
-    transform: rotateX(-20deg) rotateY(375deg) rotateZ(0deg);
-  }
-
-  85% {
-    transform: rotateX(-20deg) rotateY(357deg) rotateZ(0deg);
-  }
-
-  87% {
-    transform: rotateX(-20deg) rotateY(360deg) rotateZ(0deg);
-  }
-
-  100% {
-    transform: rotateX(-20deg) rotateY(360deg) rotateZ(0deg);
+  100%{
+    transform:
+    rotateX(-18deg)
+    rotateY(-18deg)
+    translateY(0px);
   }
 }
 
-@keyframes lid-screen {
-  0% {
-    transform: rotateX(0deg);
-    background-position: left bottom;
+@keyframes shine {
+
+  0%{
+    transform: translateX(-100%);
   }
 
-  5% {
-    transform: rotateX(50deg);
-    background-position: left bottom;
-  }
-
-  20% {
-    transform: rotateX(-90deg);
-    background-position: -150px top;
-  }
-
-  25% {
-    transform: rotateX(15deg);
-    background-position: left bottom;
-  }
-
-  30% {
-    transform: rotateX(-5deg);
-    background-position: right top;
-  }
-
-  38% {
-    transform: rotateX(5deg);
-    background-position: right top;
-  }
-
-  48% {
-    transform: rotateX(0deg);
-    background-position: right top;
-  }
-
-  90% {
-    transform: rotateX(0deg);
-    background-position: right top;
-  }
-
-  100% {
-    transform: rotateX(0deg);
-    background-position: right center;
-  }
-}
-
-@keyframes lid-macbody {
-  0% {
-    transform: rotateX(-90deg);
-  }
-
-  50% {
-    transform: rotateX(-90deg);
-  }
-
-  100% {
-    transform: rotateX(-90deg);
-  }
-}
-
-@keyframes lid-keyboard-area {
-  0% {
-    background-color: #dfdfdf;
-  }
-
-  50% {
-    background-color: #bbb;
-  }
-
-  100% {
-    background-color: #dfdfdf;
-  }
-}
-
-@keyframes screen-shade {
-  0% {
-    background-position: -20px 0px;
-  }
-
-  5% {
-    background-position: -40px 0px;
-  }
-
-  20% {
-    background-position: 200px 0;
-  }
-
-  50% {
-    background-position: -200px 0;
-  }
-
-  80% {
-    background-position: 0px 0px;
-  }
-
-  85% {
-    background-position: -30px 0;
-  }
-
-  90% {
-    background-position: -20px 0;
-  }
-
-  100% {
-    background-position: -20px 0px;
-  }
-}
-
-@keyframes keys {
-  0% {
-    box-shadow: 0 -2px 0 #222;
-  }
-
-  5% {
-    box-shadow: 1 -1px 0 #222;
-  }
-
-  20% {
-    box-shadow: -1px 1px 0 #222;
-  }
-
-  25% {
-    box-shadow: -1px 1px 0 #222;
-  }
-
-  60% {
-    box-shadow: -1px 1px 0 #222;
-  }
-
-  80% {
-    box-shadow: 0 -2px 0 #222;
-  }
-
-  85% {
-    box-shadow: 0 -2px 0 #222;
-  }
-
-  87% {
-    box-shadow: 0 -2px 0 #222;
-  }
-
-  100% {
-    box-shadow: 0 -2px 0 #222;
-  }
-}
-
-@keyframes shadow {
-  0% {
-    transform: rotateX(80deg) rotateY(0deg) rotateZ(0deg);
-    box-shadow: 0 0 60px 40px rgba(0,0,0,0.3);
-  }
-
-  5% {
-    transform: rotateX(80deg) rotateY(10deg) rotateZ(0deg);
-    box-shadow: 0 0 60px 40px rgba(0,0,0,0.3);
-  }
-
-  20% {
-    transform: rotateX(30deg) rotateY(-20deg) rotateZ(-20deg);
-    box-shadow: 0 0 50px 30px rgba(0,0,0,0.3);
-  }
-
-  25% {
-    transform: rotateX(80deg) rotateY(-20deg) rotateZ(50deg);
-    box-shadow: 0 0 35px 15px rgba(0,0,0,0.1);
-  }
-
-  60% {
-    transform: rotateX(80deg) rotateY(0deg) rotateZ(-50deg) translateX(30px);
-    box-shadow: 0 0 60px 40px rgba(0,0,0,0.3);
-  }
-
-  100% {
-    box-shadow: 0 0 60px 40px rgba(0,0,0,0.3);
+  100%{
+    transform: translateX(200%);
   }
 }
