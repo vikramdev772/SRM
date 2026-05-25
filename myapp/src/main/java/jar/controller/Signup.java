@@ -19,9 +19,13 @@ public class Signup {
     public String signup(@RequestBody userData ud) {
 
         User data = new User();
+
         data.setName(ud.getName());
+
         data.setEmail(ud.getEmail());
+
         data.setPassword(ud.getPassword());
+        
         db.save(data);
 
         return "signup sucess ✅" + ud.toString();

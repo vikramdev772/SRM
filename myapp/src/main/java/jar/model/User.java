@@ -1,7 +1,5 @@
 package jar.model;
 
-import org.hibernate.annotations.ValueGenerationType;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,4 +18,5 @@ public class User {
     String name;
     String email;
     String password;
+
 }
